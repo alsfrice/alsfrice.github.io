@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-04T08:53:56.400Z</updated>
+  <updated>2019-07-05T08:42:02.505Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nodejs C++插件</title>
+    <link href="http://yoursite.com/2019/07/05/Nodejs-C-%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/2019/07/05/Nodejs-C-插件/</id>
+    <published>2019-07-05T07:17:04.000Z</published>
+    <updated>2019-07-05T08:42:02.505Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在看《深入浅出Node.js》一书学习Node.js之时，根据书中的内容写C++扩展。念于此书年代过于久远，书中的部分代码已经过时了。写此文章，谨记学习路上踩过的坑。&lt;/p&gt;
+&lt;p&gt;用C++编写一个简单的”Hello World”插件，功能很简单，就是返回一个”Hello
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/categories/JavaScript/Node-js/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>水平居中</title>
