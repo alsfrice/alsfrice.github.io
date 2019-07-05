@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[水平居中]]></title>
+    <url>%2F2018%2F09%2F05%2F%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%2F</url>
+    <content type="text"><![CDATA[行内元素 我们在实际工作中常会遇到需要设置水平居中的场景，比如为了美观，文章的标题一般都是水平居中显示的。 这里我们又得分两种情况：行内元素 还是 块状元素 ，块状元素里面又分为定宽块状元素，以及不定宽块状元素。今天我们先来了解一下行内元素怎么进行水平居中？ 如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。(父元素和子元素：如下面的html代码中，div是“我想要在父容器中水平居中显示”这个文本的父元素。反之这个文本是div的子元素 )如下代码： html代码： &lt;body&gt; &lt;div class=&quot;txtCenter&quot;&gt;我想要在父容器中水平居中显示。&lt;/div&gt; &lt;/body&gt;css代码： &lt;style&gt; .txtCenter{ text-align:center; } &lt;/style&gt;定宽块状元素 当被设置元素为 块状元素 时用 text-align：center 就不起作用了，这时也分两种情况：定宽块状元素和不定宽块状元素。 这一小节我们先来讲一讲定宽块状元素。(定宽块状元素：块状元素的宽度width为固定值。) 满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的。我们来看个例子就是设置 div 这个块状元素水平居中： html代码： &lt;body&gt; &lt;div&gt;我是定宽块状元素，哈哈，我要水平居中显示。&lt;/div&gt; &lt;/body&gt;css代码： &lt;style&gt; div{ border:1px solid red;/*为了显示居中效果明显为 div 设置了边框*/ width:200px;/*定宽*/ margin:20px auto;/* margin-left 与 margin-right 设置为 auto */ } &lt;/style&gt;也可以写成： margin-left:auto; margin-right:auto;注意：元素的“上下 margin” 是可以随意设置的。 不定宽块状元素方法 在实际工作中我们会遇到需要为“不定宽度的块状元素”设置居中，比如网页上的分页导航，因为分页的数量是不确定的，所以我们不能通过设置宽度来限制它的弹性。(不定宽块状元素：块状元素的宽度width不固定。) 不定宽度的块状元素有三种方法居中（这三种方法目前使用的都很多）： 加入 table 标签 设置 display: inline 方法：与第一种类似，显示类型设为 行内元素，进行不定宽元素的属性设置 设置 position:relative 和 left:50%：利用 相对定位 的方式，将元素向左偏移 50% ，即达到居中的目的这一小节我们来讲一下第一种方法： 为什么选择方法一加入table标签? 是利用table标签的长度自适应性—即不定义其长度也不默认父元素body的长度（table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。 第一步：为需要设置的居中的元素外面加入一个 table 标签 ( 包括 、、 )。 第二步：为这个 table 设置“左右 margin 居中”（这个和定宽块状元素的方法一样）。 举例如下： html代码： &lt;div&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr&gt;&lt;td&gt; &lt;ul&gt; &lt;li&gt;我是第一行文本&lt;/li&gt; &lt;li&gt;我是第二行文本&lt;/li&gt; &lt;li&gt;我是第三行文本&lt;/li&gt; &lt;/ul&gt; &lt;/td&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/div&gt;css代码： &lt;style&gt; table{ border:1px solid; margin:0 auto; } &lt;/style&gt; 除了上一节讲到的插入table标签，可以使不定宽块状元素水平居中之外，本节介绍第2种实现这种效果的方法，改变元素的display类型为行内元素，利用其属性直接设置。 第二种方法：改变块级元素的 display 为 inline 类型（设置为 行内元素 显示），然后使用 text-align:center 来实现居中效果。如下例子： html代码： &lt;body&gt; &lt;div class=&quot;container&quot;&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;/body&gt;css代码： &lt;style&gt; .container{ text-align:center; } /* margin:0;padding:0（消除文本与div边框之间的间隙）*/ .container ul{ list-style:none; margin:0; padding:0; display:inline; } /* margin-right:8px（设置li文本之间的间隔）*/ .container li{ margin-right:8px; display:inline; } &lt;/style&gt;这种方法相比第一种方法的优势是不用增加无语义标签，但也存在着一些问题：它将块状元素的 display 类型改为 inline，变成了行内元素，所以少了一些功能，比如设定长度值。 除了前两节讲到的插入table标签，以及改变元素的display类型，可以使不定宽块状元素水平居中之外，本节介绍第3种实现这种效果的方法，设置浮动和相对定位来实现。 方法三：通过给父元素设置 float，然后给父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left: -50% 来实现水平居中。 我们可以这样理解：假想ul层的父层（即下面例子中的div层）中间有条平分线将ul层的父层（div层）平均分为两份，ul层的css代码是将ul层的最左端与ul层的父层（div层）的平分线对齐；而li层的css代码则是将li层的平分线与ul层的最左端（也是div层的平分线）对齐，从而实现li层的居中。 代码如下： &lt;body&gt; &lt;div class=&quot;container&quot;&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;/body&gt;css代码： &lt;style&gt; .container{ float:left; position:relative; left:50% } .container ul{ list-style:none; margin:0; padding:0; position:relative; left:-50%; } .container li{float:left;display:inline;margin-right:8px;} &lt;/style&gt;这三种方法使用得都非常广泛，各有优缺点，具体选用哪种方法，可以视具体情况而定。 已知宽度,通过设置position:absolute,margin-left为宽度的负一半 .parent { position: relative; } .child { position: absolute; left: 50%; width: 150px; margin-left: -75px; }未知宽度,通过设置position:absolute .parent { position: relative; } .child { position: absolute; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流） 第一种： .parent { display: flex; justify-content: center; } 第二种： .parent { display: flex; } .child { margin: 0 auto; }]]></content>
+      <categories>
+        <category>HTML/CSS</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[预留高度问题]]></title>
+    <url>%2F2018%2F09%2F04%2F%E9%A2%84%E7%95%99%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[在display：block的块种宽度width固定为100% 而高度height则是随着内容的增加而自动增加，如果想要放置图片，给块预留高度，可以用以下方案解决： 1234567891011.parnet&#123; overflow:hidden; width:100%; height:0; padding-bottom:31.25%; //这里的padding-bottom是由子元素图片的高/宽之比算出来的 //如图片宽高 640px 200px 200÷640＝31.25%&#125;.child-img&#123; width:100%;&#125; 还有一种方法，不过存在兼容性问题 123456789.parnet&#123; overflow:hidden; width:100%; height:31.25vw; //将高度设置为屏宽的31.25% &#125; .child-img&#123; width:100%; &#125;]]></content>
+      <categories>
+        <category>HTML/CSS</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[垂直居中]]></title>
+    <url>%2F2018%2F09%2F01%2F%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%2F</url>
+    <content type="text"><![CDATA[垂直居中-父元素高度确定的单行文本 我们在实际工作中也会遇到需要设置==垂直居中==的场景，比如好多报纸的文章标题在左右一侧时，常常会设置为==垂直居中==，为了用户体验性好。 这里我们又得分两种情况：==父元素高度确定的单行文本==，以及==父元素高度确定的多行文本==。 本节我们先来看第一种父元素高度确定的单行文本, 怎么设置它为垂直居中呢？ ==父元素高度确定的单行文本==的竖直居中的方法是通过设置父元素的 ==height== 和 ==line-height== 高度一致来实现的。(height: 该元素的高度，line-height: 顾名思义，行高（行的高度），指在文本中，行与行之间的 基线间的距离 )。 line-height 与 font-size 的计算值之差，在 CSS 中成为“行间距”。分为两半，分别加到一个文本行内容的顶部和底部。 这种文字行高与块高一致带来了一个==弊端==：当文字内容的长度大于块的宽时，就有内容脱离了块。 如下代码： 123&lt;div class=&quot;container&quot;&gt; hi,imooc!&lt;/div&gt; css代码： &lt;style&gt; .container{ height:100px; line-height:100px; background:#999; } &lt;/style&gt; &nbsp; 垂直居中-父元素高度确定的多行文本（方法一） 父元素高度确定的==多行文本、图片等==的竖直居中的方法有两种： 方法一：使用插入 table (包括tbody、tr、td)标签，同时设置 vertical-align：middle。 css 中有一个用于竖直居中的属性 ==vertical-align==，在父元素设置此样式时，会对==inline-block==类型的子元素都有用。下面看一下例子： html代码： &lt;body&gt; &lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;wrap&quot;&gt; &lt;div&gt; &lt;p&gt;看我是否可以居中。&lt;/p&gt; &lt;/div&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt; &lt;/body&gt;css代码： table td{height:500px;background:#ccc}因为 td 标签默认情况下就默认设置了 ==vertical-align 为 middle==，所以我们不需要显式地设置了。 垂直居中-父元素高度确定的多行文本（方法二） 除了上一节讲到的插入table标签，可以使==父元素高度确定的多行文本==垂直居中之外，本节介绍另外一种实现这种效果的方法。但这种方法兼容性比较差，只是提供大家学习参考。 在 chrome、firefox 及 IE8 以上的浏览器下可以设置块级元素的 display 为 ==table-cell（设置为表格单元显示）==，激活 vertical-align 属性，但注意 IE6、7 并不支持这个样式, 兼容性比较差。 html代码： &lt;div class=&quot;container&quot;&gt; &lt;div&gt; &lt;p&gt;看我是否可以居中。&lt;/p&gt; &lt;p&gt;看我是否可以居中。&lt;/p&gt; &lt;p&gt;看我是否可以居中。&lt;/p&gt; &lt;/div&gt; &lt;/div&gt;css代码： &lt;style&gt; .container{ height:300px; background:#ccc; display:table-cell;/*IE8以上及Chrome、Firefox*/ vertical-align:middle;/*IE8以上及Chrome、Firefox*/ } &lt;/style&gt;这种方法的好处是不用添加多余的==无意义的标签==，但缺点也很明显，它的兼容性不是很好，不兼容 IE6、7而且这样修改display的block变成了table-cell，破坏了原有的块状元素的性质。 未知高度，设置position:absolute .parent { position: relative; } .child { position: absolute; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }已知高度，设置position:absolute,margin-top为高度的负一半 .parent { position: relative; } .child { position: absolute; top: 50%; height: 150px; margin-top: -75px; }使用flex布局实现 .parent { display: flex; align-items: center; }]]></content>
+      <categories>
+        <category>HTML/CSS</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Relative与Absolute组合使用]]></title>
+    <url>%2F2018%2F05%2F20%2FRelative%E4%B8%8EAbsolute%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[使用position:absolute可以实现被设置元素==相对于浏览器(body)== 设置定位以后，大家有没有想过可不可以相对于其它元素进行定位呢？答案是肯定的，当然可以。使用position:relative来帮忙，但是必须遵守下面规范： 1、参照定位的元素必须是相对定位元素的前辈元素： &lt;div id=&quot;box1&quot;&gt;&lt;!--参照定位的元素--&gt; &lt;div id=&quot;box2&quot;&gt;相对参照元素进行定位&lt;/div&gt;&lt;!--相对定位元素--&gt; &lt;/div&gt;从上面代码可以看出box1是box2的父元素（父元素当然也是前辈元素了）。 2、参照定位的元素必须加入position:relative; #box1{ width:200px; height:200px; position:relative; }3、定位元素加入position:absolute，便可以使用top、bottom、left、right来进行偏移定位了。 #box2{ position:absolute; top:20px; left:30px; }这样box2就可以相对于父元素box1定位了（这里注意参照物就可以不是浏览器了，而可以自由设置了）。]]></content>
+      <categories>
+        <category>HTML/CSS</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+</search>

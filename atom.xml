@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>墨翎呓语</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-07-04T08:53:56.400Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>月影</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>水平居中</title>
+    <link href="http://yoursite.com/2018/09/05/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2018/09/05/水平居中/</id>
+    <published>2018-09-04T16:00:00.000Z</published>
+    <updated>2019-07-04T08:53:56.400Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;行内元素&quot;&gt;&lt;a href=&quot;#行内元素&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="HTML/CSS" scheme="http://yoursite.com/categories/HTML-CSS/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>预留高度问题</title>
+    <link href="http://yoursite.com/2018/09/04/%E9%A2%84%E7%95%99%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/09/04/预留高度问题/</id>
+    <published>2018-09-03T16:00:00.000Z</published>
+    <updated>2019-07-05T00:55:32.514Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在display：block的块种宽度width固定为100% 而高度height则是随着内容的增加而自动增加，如果想要放置图片，给块预留高度，可以用以下方案解决：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="HTML/CSS" scheme="http://yoursite.com/categories/HTML-CSS/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>垂直居中</title>
+    <link href="http://yoursite.com/2018/09/01/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2018/09/01/垂直居中/</id>
+    <published>2018-08-31T16:00:00.000Z</published>
+    <updated>2019-07-04T08:53:54.200Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;垂直居中-父元素高度确定的单行文本&quot;&gt;&lt;a href=&quot;#垂直居中-父元素高度确定的单行文本&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="HTML/CSS" scheme="http://yoursite.com/categories/HTML-CSS/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Relative与Absolute组合使用</title>
+    <link href="http://yoursite.com/2018/05/20/Relative%E4%B8%8EAbsolute%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/05/20/Relative与Absolute组合使用/</id>
+    <published>2018-05-19T16:00:00.000Z</published>
+    <updated>2019-07-04T08:55:58.944Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;使用position:absolute可以实现被设置元素==相对于浏览器(body)==
+        
+      
+    
+    </summary>
+    
+      <category term="HTML/CSS" scheme="http://yoursite.com/categories/HTML-CSS/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+</feed>
