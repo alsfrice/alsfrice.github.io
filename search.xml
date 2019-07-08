@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaScript异步执行的几种方式]]></title>
+    <url>%2F2019%2F07%2F08%2FJavaScript%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[setTimeout() / setInterval() 123setTimeout(func, 0&#125;// HTML5 标准规定这个函数第二个参数不得小于 4 毫秒，不足会自动增加。 setImmediate() 12setImmediate(func)// Node API process.nextTick() 12process.nextTick(func)// Node API Promise 12345new Promise(resolve =&gt; &#123; // code resolve()&#125;) .then(func) Generator 1234567891011function *gen() &#123; yield 1 yield 2 yield 3&#125;let g = gen()g.next() // &#123;value: 1, done: false&#125;g.next() // &#123;value: 2, done: false&#125;g.next() // &#123;value: 3, done: false&#125;g.next() // &#123;value: undefined, done: true&#125; async/await 1234567891011121314151617181920212223242526function fn1() &#123; console.log(&apos;Function1&apos;)&#125;function fn2() &#123; return new Promise(resolve =&gt; &#123; console.log(&apos;Function2&apos;) resolve() &#125;)&#125;function fn3() &#123; console.log(&apos;Function3&apos;)&#125;async function asyncFn() &#123; fn1() await fn2() fn3()&#125;asyncFn()// Function1// Function2// Function3]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Node.js C++插件]]></title>
     <url>%2F2019%2F07%2F05%2FNode.js%20C%2B%2B%E6%8F%92%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[在看《深入浅出Node.js》一书学习Node.js之时，根据书中的内容写C++扩展。念于此书年代过于久远，书中的部分代码已经过时了。写此文章，谨记学习路上踩过的坑。 用C++编写一个简单的”Hello World”插件，功能很简单，就是返回一个”Hello world!”字符串，相当于以下的JavaScript代码： 1module.exports.hello = () =&gt; &apos;Hello world!&apos; 新建hello目录作为自己的项目文件夹，编写hello.cc并将其存储到src目录下，代码如下： 1234567891011121314151617181920212223242526#include &lt;node.h&gt;namespace demo &#123;using v8::FunctionCallbackInfo;using v8::Isolate;using v8::Local;using v8::Object;using v8::String;using v8::Value;// 实现预定义的方法void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) &#123; Isolate* isolate = args.GetIsolate(); args.GetReturnValue().Set(String::NewFromUtf8(isolate, &quot;Hello world!&quot;));&#125;// 初始化函数void init(Local&lt;Object&gt; exports) &#123; NODE_SET_METHOD(exports, &quot;sayHello&quot;, Method);&#125;// 调用NODE_MODULE()将注册方法定义到内存中，注：NODE_MODULE后面没有分号，因为它不是一个函数NODE_MODULE(NODE_GYP_MODULE_NAME, init)&#125; 写好C++扩展模块，还需要进行编译。工具使用node-gyp即可，安装方式可用npm或yarn: 1npm install -g node-gyp 或 1yarn global add node-gyp 安装完毕还需要写好.gyp项目文件，node-gyp约定.gyp文件为binding.gyp。它使用一个类似 JSON 的格式来描述模块的构建配置。 内容如下： 12345678&#123; &apos;targets&apos;: [ &#123; &apos;target_name&apos;: &apos;hello&apos;, &apos;sources&apos;: [&apos;src/hello.cc&apos;] &#125; ]&#125; 然后调用： 1node-gyp configure 为当前平台生成相应的项目构建文件。这会在 build/ 目录下生成一个 Makefile 文件（在 Unix 平台上）或 vcxproj 文件（在 Windows 上）。下一步，调用： 1node-gyp build 生成编译后的 hello.node 的文件。 它会被放进 build/Release/ 目录。 在hello目录下编写hello.js，代码如下： 123const hello = require(&apos;./build/Release/hello.node&apos;)console.log(hello.sayHello()) 调用： 123node hello.js// 打印：Hello world!]]></content>
