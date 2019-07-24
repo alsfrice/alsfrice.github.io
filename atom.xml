@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://alsfrice.github.io/"/>
-  <updated>2019-07-08T06:24:52.351Z</updated>
+  <updated>2019-07-24T05:49:51.640Z</updated>
   <id>https://alsfrice.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript的防抖和节流</title>
+    <link href="https://alsfrice.github.io/2019/07/24/JavaScript%E7%9A%84%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/"/>
+    <id>https://alsfrice.github.io/2019/07/24/JavaScript的防抖和节流/</id>
+    <published>2019-07-24T05:26:01.000Z</published>
+    <updated>2019-07-24T05:49:51.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;JavaScript的防抖和节流&quot;&gt;&lt;a href=&quot;#JavaScript的防抖和节流&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://alsfrice.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://alsfrice.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript异步执行的几种方式</title>

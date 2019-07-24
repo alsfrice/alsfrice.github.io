@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaScript的防抖和节流]]></title>
+    <url>%2F2019%2F07%2F24%2FJavaScript%E7%9A%84%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%2F</url>
+    <content type="text"><![CDATA[JavaScript的防抖和节流浏览器中scroll事件的handle会高频率的触发，如果在类似的频繁的事件回调中做复杂计算，很有可能导致页面卡顿。针对此类高频率触发事件的问题，JS中一般采用防抖和节流这两种方法解决。 防抖防抖的作用是在一定时间内，规定函数被执行的次数。实现如下： 123456789101112131415161718192021222324252627282930313233343536373839/** * 防抖函数，返回函数频繁调用时，空间时间必须大于或等于wait，fn才会执行 * * @param &#123;function&#125; fn * @param &#123;number&#125; wait * @param &#123;boolean&#125; immediate * @return &#123;function&#125; */const debounce = (fn, wait = 50, immediate = true) =&gt; &#123; let timer, context, args; // 延迟执行函数 const later = () =&gt; setTimeout(() =&gt; &#123; timer = null; if (!immediate) &#123; fn.apply(context, args); context = args = null; &#125; &#125;, wait); return function(...params) &#123; // 如果未创建延迟执行函数(later)，就创建一个 if (!timer) &#123; timer = later() // 如果是立即执行，调用函数 // 否则缓存上下文和参数 if (immediate) &#123; fn.apply(this, params); &#125; else &#123; context = this; args = params; &#125; &#125; else &#123; clearTimeout(timer); timer = later(); &#125; &#125;&#125; 节流节流的作用是规定函数每隔一段时间执行一次。实现如下： 1234567891011121314151617181920212223/** * 节流函数 * * @param &#123;function&#125; fn * @param &#123;number&#125; wait * @param &#123;number&#125; mustRun mustRun 毫秒内，必然会触发一次 handler */const throttle = (fn, wait, mustRun) =&gt; &#123; let timer = null, startTime = new Date(); return function(...args) &#123; let context = this, now = new Date(); clearTimeout(timer); // 时间间隔超过mustRun，执行fn if (now - startTime &gt;= mustRun) &#123; fn.apply(context, args); startTime = now; &#125; else &#123; timer = setTimeout(fn, wait); &#125; &#125;&#125; 引用大佬文章里面的话： 防抖和节流的作用都是防止函数多次调用。区别在于，假设一个用户一直触发这个函数，且每次触发函数的间隔小于wait，防抖的情况下只会调用一次，而节流的 情况会每隔一定时间（参数wait）调用函数。 防抖动和节流本质是不一样的。防抖动是将多次执行变为最后一次执行，节流是将多次执行变成每隔一段时间执行。]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaScript异步执行的几种方式]]></title>
     <url>%2F2019%2F07%2F08%2FJavaScript%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[setTimeout() / setInterval() 123setTimeout(func, 0&#125;// HTML5 标准规定这个函数第二个参数不得小于 4 毫秒，不足会自动增加。 setImmediate() 12setImmediate(func)// Node API process.nextTick() 12process.nextTick(func)// Node API Promise 12345new Promise(resolve =&gt; &#123; // code resolve()&#125;) .then(func) Generator 1234567891011function *gen() &#123; yield 1 yield 2 yield 3&#125;let g = gen()g.next() // &#123;value: 1, done: false&#125;g.next() // &#123;value: 2, done: false&#125;g.next() // &#123;value: 3, done: false&#125;g.next() // &#123;value: undefined, done: true&#125; async/await 1234567891011121314151617181920212223242526function fn1() &#123; console.log(&apos;Function1&apos;)&#125;function fn2() &#123; return new Promise(resolve =&gt; &#123; console.log(&apos;Function2&apos;) resolve() &#125;)&#125;function fn3() &#123; console.log(&apos;Function3&apos;)&#125;async function asyncFn() &#123; fn1() await fn2() fn3()&#125;asyncFn()// Function1// Function2// Function3]]></content>

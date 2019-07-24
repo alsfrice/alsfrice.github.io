@@ -108,17 +108,18 @@
 
 
 
-  <meta name="description" content="blog by espoir.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://alsfrice.github.io/categories/index.html">
+  <meta name="description" content="JavaScript的防抖和节流浏览器中scroll事件的handle会高频率的触发，如果在类似的频繁的事件回调中做复杂计算，很有可能导致页面卡顿。针对此类高频率触发事件的问题，JS中一般采用防抖和节流这两种方法解决。  防抖防抖的作用是在一定时间内，规定函数被执行的次数。实现如下： 123456789101112131415161718192021222324252627282930313233">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的防抖和节流">
+<meta property="og:url" content="https://alsfrice.github.io/2019/07/24/JavaScript的防抖和节流/index.html">
 <meta property="og:site_name" content="墨翎呓语">
-<meta property="og:description" content="blog by espoir.">
+<meta property="og:description" content="JavaScript的防抖和节流浏览器中scroll事件的handle会高频率的触发，如果在类似的频繁的事件回调中做复杂计算，很有可能导致页面卡顿。针对此类高频率触发事件的问题，JS中一般采用防抖和节流这两种方法解决。  防抖防抖的作用是在一定时间内，规定函数被执行的次数。实现如下： 123456789101112131415161718192021222324252627282930313233">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T00:50:43.378Z">
+<meta property="og:updated_time" content="2019-07-24T05:49:51.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="blog by espoir.">
+<meta name="twitter:title" content="JavaScript的防抖和节流">
+<meta name="twitter:description" content="JavaScript的防抖和节流浏览器中scroll事件的handle会高频率的触发，如果在类似的频繁的事件回调中做复杂计算，很有可能导致页面卡顿。针对此类高频率触发事件的问题，JS中一般采用防抖和节流这两种方法解决。  防抖防抖的作用是在一定时间内，规定函数被执行的次数。实现如下： 123456789101112131415161718192021222324252627282930313233">
 
 
 
@@ -128,7 +129,7 @@
 
   
   
-  <link rel="canonical" href="https://alsfrice.github.io/categories/">
+  <link rel="canonical" href="https://alsfrice.github.io/2019/07/24/JavaScript的防抖和节流/">
 
 
 
@@ -138,7 +139,7 @@
   };
 </script>
 
-  <title>分类 | 墨翎呓语</title>
+  <title>JavaScript的防抖和节流 | 墨翎呓语</title>
   
 
 
@@ -266,7 +267,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -359,96 +360,224 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alsfrice.github.io/2019/07/24/JavaScript的防抖和节流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="月影">
+      <meta itemprop="description" content="blog by espoir.">
+      <meta itemprop="image" content="/images/espoir.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="墨翎呓语">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">分类
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
+          <h2 class="post-title" itemprop="name headline">JavaScript的防抖和节流
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 3 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML/CSS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/">Node.js</a><span class="category-list-count">1</span></li></ul></li></ul>
-            </div>
-          </div>
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-24 13:26:01 / 修改时间：13:49:51" itemprop="dateCreated datePublished" datetime="2019-07-24T13:26:01+08:00">2019-07-24</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="JavaScript的防抖和节流"><a href="#JavaScript的防抖和节流" class="headerlink" title="JavaScript的防抖和节流"></a>JavaScript的防抖和节流</h2><p>浏览器中scroll事件的handle会高频率的触发，如果在类似的频繁的事件回调中做复杂计算，很有可能导致页面卡顿。针对此类高频率触发事件的问题，JS中一般采用<strong>防抖</strong>和<strong>节流</strong>这两种方法解决。</p>
+<hr>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>防抖的作用是在一定时间内，规定函数被执行的次数。实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 防抖函数，返回函数频繁调用时，空间时间必须大于或等于wait，fn才会执行</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;function&#125; fn </span><br><span class="line"> * @param &#123;number&#125; wait </span><br><span class="line"> * @param &#123;boolean&#125; immediate </span><br><span class="line"> * @return &#123;function&#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">const debounce = (fn, wait = 50, immediate = true) =&gt; &#123;</span><br><span class="line">  let timer, context, args;</span><br><span class="line"></span><br><span class="line">  // 延迟执行函数</span><br><span class="line">  const later = () =&gt; setTimeout(() =&gt; &#123;</span><br><span class="line">    timer = null;</span><br><span class="line">    if (!immediate) &#123;</span><br><span class="line">      fn.apply(context, args);</span><br><span class="line">      context = args = null;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, wait);</span><br><span class="line"></span><br><span class="line">  return function(...params) &#123;</span><br><span class="line">    // 如果未创建延迟执行函数(later)，就创建一个</span><br><span class="line">    if (!timer) &#123;</span><br><span class="line">      timer = later()</span><br><span class="line">      // 如果是立即执行，调用函数</span><br><span class="line">      // 否则缓存上下文和参数</span><br><span class="line">      if (immediate) &#123;</span><br><span class="line">        fn.apply(this, params);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        context = this;</span><br><span class="line">        args = params;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      clearTimeout(timer);</span><br><span class="line">      timer = later();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>节流的作用是规定函数每隔一段时间执行一次。实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 节流函数</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;function&#125; fn </span><br><span class="line"> * @param &#123;number&#125; wait </span><br><span class="line"> * @param &#123;number&#125; mustRun  mustRun 毫秒内，必然会触发一次 handler</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">const throttle = (fn, wait, mustRun) =&gt; &#123;</span><br><span class="line">  let timer = null, startTime = new Date();</span><br><span class="line"></span><br><span class="line">  return function(...args) &#123;</span><br><span class="line">    let context = this, now = new Date();</span><br><span class="line">    clearTimeout(timer);</span><br><span class="line">    // 时间间隔超过mustRun，执行fn</span><br><span class="line">    if (now - startTime &gt;= mustRun) &#123;</span><br><span class="line">      fn.apply(context, args);</span><br><span class="line">      startTime = now;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      timer = setTimeout(fn, wait);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>引用大佬文章里面的话：</p>
+<blockquote>
+<p>防抖和节流的作用都是防止函数多次调用。区别在于，假设一个用户一直触发这个函数，且每次触发函数的间隔小于wait，防抖的情况下只会调用一次，而节流的 情况会每隔一定时间（参数wait）调用函数。</p>
+<p>防抖动和节流本质是不一样的。防抖动是将多次执行变为最后一次执行，节流是将多次执行变成每隔一段时间执行。</p>
+</blockquote>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/08/JavaScript异步执行的几种方式/" rel="next" title="JavaScript异步执行的几种方式">
+                <i class="fa fa-chevron-left"></i> JavaScript异步执行的几种方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTA5NS8yMTYxMg"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -468,8 +597,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -618,6 +756,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的防抖和节流"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的防抖和节流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#防抖"><span class="nav-number">1.1.</span> <span class="nav-text">防抖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节流"><span class="nav-number">1.2.</span> <span class="nav-text">节流</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -801,6 +956,26 @@
 
   
 
+
+  
+    
+
+
+<script>
+  window.livereOptions = {
+    refer: '2019/07/24/JavaScript的防抖和节流/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
 
 
   
