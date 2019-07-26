@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="行内元素 我们在实际工作中常会遇到需要设置水平居中的场景，比如为了美观，文章的标题一般都是水平居中显示的。 这里我们又得分两种情况：行内元素 还是 块状元素 ，块状元素里面又分为定宽块状元素，以及不定宽块状元素。今天我们先来了解一下行内元素怎么进行水平居中？ 如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。(父元素和子元素：如下面的">
+  <meta name="description" content="介绍了HTML里将元素水平居中显示的几种方式。">
 <meta name="keywords" content="CSS,HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="水平居中">
 <meta property="og:url" content="https://alsfrice.github.io/2018/09/05/水平居中/index.html">
 <meta property="og:site_name" content="墨翎呓语">
-<meta property="og:description" content="行内元素 我们在实际工作中常会遇到需要设置水平居中的场景，比如为了美观，文章的标题一般都是水平居中显示的。 这里我们又得分两种情况：行内元素 还是 块状元素 ，块状元素里面又分为定宽块状元素，以及不定宽块状元素。今天我们先来了解一下行内元素怎么进行水平居中？ 如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。(父元素和子元素：如下面的">
+<meta property="og:description" content="介绍了HTML里将元素水平居中显示的几种方式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-04T08:53:56.400Z">
+<meta property="og:updated_time" content="2019-07-26T05:23:18.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="水平居中">
-<meta name="twitter:description" content="行内元素 我们在实际工作中常会遇到需要设置水平居中的场景，比如为了美观，文章的标题一般都是水平居中显示的。 这里我们又得分两种情况：行内元素 还是 块状元素 ，块状元素里面又分为定宽块状元素，以及不定宽块状元素。今天我们先来了解一下行内元素怎么进行水平居中？ 如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。(父元素和子元素：如下面的">
+<meta name="twitter:description" content="介绍了HTML里将元素水平居中显示的几种方式。">
 
 
 
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-04 16:53:56" itemprop="dateModified" datetime="2019-07-04T16:53:56+08:00">2019-07-04</time>
+                <time title="修改时间：2019-07-26 13:23:18" itemprop="dateModified" datetime="2019-07-26T13:23:18+08:00">2019-07-26</time>
               </span>
             
           
@@ -484,6 +484,8 @@
           
 
           
+            <div class="post-description">介绍了HTML里将元素水平居中显示的几种方式。</div>
+          
 
         </div>
       </header>
@@ -503,32 +505,26 @@
 <p>这里我们又得分两种情况：行内元素 还是 块状元素 ，块状元素里面又分为定宽块状元素，以及不定宽块状元素。今天我们先来了解一下行内元素怎么进行水平居中？</p>
 <p>如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。(父元素和子元素：如下面的html代码中，div是“我想要在父容器中水平居中显示”这个文本的父元素。反之这个文本是div的子元素 )如下代码：</p>
 <p>html代码：</p>
-<pre><code>&lt;body&gt;
-  &lt;div class=&quot;txtCenter&quot;&gt;我想要在父容器中水平居中显示。&lt;/div&gt;
-&lt;/body&gt;</code></pre><p>css代码：</p>
-<pre><code>&lt;style&gt;
-  .txtCenter{
-   text-align:center;
- }
-&lt;/style&gt;</code></pre><h3 id="定宽块状元素"><a href="#定宽块状元素" class="headerlink" title="定宽块状元素"></a>定宽块状元素</h3><hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"txtCenter"</span>&gt;</span>我想要在父容器中水平居中显示。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line"><span class="selector-class">.txtCenter</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="定宽块状元素"><a href="#定宽块状元素" class="headerlink" title="定宽块状元素"></a>定宽块状元素</h3><hr>
 <p>当被设置元素为 块状元素 时用 text-align：center 就不起作用了，这时也分两种情况：定宽块状元素和不定宽块状元素。</p>
 <p>这一小节我们先来讲一讲定宽块状元素。(定宽块状元素：块状元素的宽度width为固定值。)</p>
 <p>满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的。我们来看个例子就是设置 div 这个块状元素水平居中：</p>
 <p>html代码：</p>
-<pre><code>&lt;body&gt;
-  &lt;div&gt;我是定宽块状元素，哈哈，我要水平居中显示。&lt;/div&gt;
-&lt;/body&gt;</code></pre><p>css代码：</p>
-<pre><code>&lt;style&gt;
-div{
-   border:1px solid red;/*为了显示居中效果明显为 div 设置了边框*/
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>我是定宽块状元素，哈哈，我要水平居中显示。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-   width:200px;/*定宽*/
-   margin:20px auto;/* margin-left 与 margin-right 设置为 auto */
-}
+<p>css代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;<span class="comment">/*为了显示居中效果明显为 div 设置了边框*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;<span class="comment">/*定宽*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;<span class="comment">/* margin-left 与 margin-right 设置为 auto */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-&lt;/style&gt;</code></pre><p>也可以写成：</p>
-<pre><code>margin-left:auto;
-margin-right:auto;</code></pre><p>注意：元素的“上下 margin” 是可以随意设置的。</p>
+<p>也可以写成：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin-left</span>: <span class="selector-tag">auto</span>;</span><br><span class="line"><span class="selector-tag">margin-right</span>: <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意：元素的“上下 margin” 是可以随意设置的。</p>
 <h3 id="不定宽块状元素方法"><a href="#不定宽块状元素方法" class="headerlink" title="不定宽块状元素方法"></a>不定宽块状元素方法</h3><hr>
 <p>在实际工作中我们会遇到需要为“不定宽度的块状元素”设置居中，比如网页上的分页导航，因为分页的数量是不确定的，所以我们不能通过设置宽度来限制它的弹性。(不定宽块状元素：块状元素的宽度width不固定。)</p>
 <p>不定宽度的块状元素有三种方法居中（这三种方法目前使用的都很多）：</p>
@@ -536,125 +532,42 @@ margin-right:auto;</code></pre><p>注意：元素的“上下 margin” 是可�
 设置 display: inline 方法：与第一种类似，显示类型设为 行内元素，进行不定宽元素的属性设置
 设置 position:relative 和 left:50%：利用 相对定位 的方式，将元素向左偏移 50% ，即达到居中的目的</code></pre><p>这一小节我们来讲一下第一种方法：</p>
 <p>为什么选择方法一加入table标签? 是利用table标签的长度自适应性—即不定义其长度也不默认父元素body的长度（table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。</p>
-<p>第一步：为需要设置的居中的元素外面加入一个 table 标签 ( 包括 <tbody>、<tr>、<td> )。</td></tr></tbody></p>
+<p>第一步：为需要设置的居中的元素外面加入一个 table 标签 ( 包括 <code>&lt;tbody&gt;</code>、<code>&lt;tr&gt;</code>、<code>&lt;td&gt;</code> )。</p>
 <p>第二步：为这个 table 设置“左右 margin 居中”（这个和定宽块状元素的方法一样）。</p>
 <p>举例如下：</p>
 <p>html代码：</p>
-<pre><code>&lt;div&gt;
- &lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;
-    &lt;ul&gt;
-        &lt;li&gt;我是第一行文本&lt;/li&gt;
-        &lt;li&gt;我是第二行文本&lt;/li&gt;
-        &lt;li&gt;我是第三行文本&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
- &lt;/table&gt;
-&lt;/div&gt;</code></pre><p>css代码：</p>
-<pre><code>&lt;style&gt;
-table{
-    border:1px solid;
-    margin:0 auto;
-}
-&lt;/style&gt;</code></pre><hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>我是第一行文本<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>我是第二行文本<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>我是第三行文本<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
 <p>除了上一节讲到的插入table标签，可以使不定宽块状元素水平居中之外，本节介绍第2种实现这种效果的方法，改变元素的display类型为行内元素，利用其属性直接设置。</p>
 <p>第二种方法：改变块级元素的 display 为 inline 类型（设置为 行内元素 显示），然后使用 text-align:center 来实现居中效果。如下例子：</p>
 <p>html代码：</p>
-<pre><code>&lt;body&gt;
-&lt;div class=&quot;container&quot;&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/body&gt;</code></pre><p>css代码：</p>
-<pre><code>&lt;style&gt;
-.container{
-    text-align:center;
-}
-/* margin:0;padding:0（消除文本与div边框之间的间隙）*/
-.container ul{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:inline;
-}
-/* margin-right:8px（设置li文本之间的间隔）*/
-.container li{
-    margin-right:8px;
-    display:inline;
-}
-&lt;/style&gt;</code></pre><p>这种方法相比第一种方法的优势是不用增加无语义标签，但也存在着一些问题：它将块状元素的 display 类型改为 inline，变成了行内元素，所以少了一些功能，比如设定长度值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>:center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* margin:0;padding:0（消除文本与div边框之间的间隙）*/</span></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">list-style</span>:none;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">display</span>:inline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* margin-right:8px（设置li文本之间的间隔）*/</span></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">margin-right</span>:<span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">display</span>:inline;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这种方法相比第一种方法的优势是不用增加无语义标签，但也存在着一些问题：它将块状元素的 display 类型改为 inline，变成了行内元素，所以少了一些功能，比如设定长度值。</p>
 <hr>
 <p>除了前两节讲到的插入table标签，以及改变元素的display类型，可以使不定宽块状元素水平居中之外，本节介绍第3种实现这种效果的方法，设置浮动和相对定位来实现。</p>
 <p>方法三：通过给父元素设置 float，然后给父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left: -50% 来实现水平居中。</p>
 <p>我们可以这样理解：假想ul层的父层（即下面例子中的div层）中间有条平分线将ul层的父层（div层）平均分为两份，ul层的css代码是将ul层的最左端与ul层的父层（div层）的平分线对齐；而li层的css代码则是将li层的平分线与ul层的最左端（也是div层的平分线）对齐，从而实现li层的居中。</p>
 <p>代码如下：</p>
-<pre><code>&lt;body&gt;
-&lt;div class=&quot;container&quot;&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/body&gt;</code></pre><p>css代码：</p>
-<pre><code>&lt;style&gt;
-.container{
-    float:left;
-    position:relative;
-    left:50%
-}
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-.container ul{
-    list-style:none;
-    margin:0;
-    padding:0;
+<p>css代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">list-style</span>:none;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">left</span>:-<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">li</span>&#123;<span class="attribute">float</span>:left;<span class="attribute">display</span>:inline;<span class="attribute">margin-right</span>:<span class="number">8px</span>;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-    position:relative;
-    left:-50%;
-}
-.container li{float:left;display:inline;margin-right:8px;}
-&lt;/style&gt;</code></pre><p>这三种方法使用得都非常广泛，各有优缺点，具体选用哪种方法，可以视具体情况而定。</p>
-<h3 id="已知宽度-通过设置position-absolute-margin-left为宽度的负一半"><a href="#已知宽度-通过设置position-absolute-margin-left为宽度的负一半" class="headerlink" title="已知宽度,通过设置position:absolute,margin-left为宽度的负一半"></a>已知宽度,通过设置position:absolute,margin-left为宽度的负一半</h3><hr>
-<pre><code>.parent {
-    position: relative;
-  }
+<p>这三种方法使用得都非常广泛，各有优缺点，具体选用哪种方法，可以视具体情况而定。</p>
+<hr>
+<h3 id="已知宽度-通过设置position-absolute-margin-left为宽度的负一半"><a href="#已知宽度-通过设置position-absolute-margin-left为宽度的负一半" class="headerlink" title="已知宽度,通过设置position:absolute,margin-left为宽度的负一半"></a>已知宽度,通过设置position:absolute,margin-left为宽度的负一半</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">75px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-.child {
-    position: absolute;
-    left: 50%;
-    width: 150px;
-    margin-left: -75px;
-  }</code></pre><h3 id="未知宽度-通过设置position-absolute"><a href="#未知宽度-通过设置position-absolute" class="headerlink" title="未知宽度,通过设置position:absolute"></a>未知宽度,通过设置position:absolute</h3><hr>
-<pre><code>.parent {
-    position: relative;
-  }
+<h3 id="未知宽度-通过设置position-absolute"><a href="#未知宽度-通过设置position-absolute" class="headerlink" title="未知宽度,通过设置position:absolute"></a>未知宽度,通过设置position:absolute</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translateX</span>(-50%);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-.child {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-  }</code></pre><h3 id="使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）"><a href="#使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）" class="headerlink" title="使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）"></a>使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）</h3><hr>
-<pre><code>第一种：
-.parent {
-    display: flex;
-    justify-content: center;
-}
-
-
-第二种：
-.parent {
-    display: flex;
- }
-
-.child {
-    margin: 0 auto;
- }</code></pre>
+<h3 id="使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）"><a href="#使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）" class="headerlink" title="使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）"></a>使用flex布局实现（兼容性不好，感觉有点变成浮动的效果，不在文档流）</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一种： */</span></span><br><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 第二种： */</span></span><br><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -783,7 +696,7 @@ table{
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

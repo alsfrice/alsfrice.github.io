@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="使用position:absolute可以实现被设置元素==相对于浏览器(body)== 设置定位以后，大家有没有想过可不可以相对于其它元素进行定位呢？答案是肯定的，当然可以。使用position:relative来帮忙，但是必须遵守下面规范： 1、参照定位的元素必须是相对定位元素的前辈元素： &amp;lt;div id=&amp;quot;box1&amp;quot;&amp;gt;&amp;lt;!--参照定位的元素--&amp;gt;">
+  <meta name="description" content="介绍了CSS属性&apos;position&apos;的relative与absolute如何搭配使用，页面搭建有时候会用到。">
 <meta name="keywords" content="CSS,HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Relative与Absolute组合使用">
 <meta property="og:url" content="https://alsfrice.github.io/2018/05/20/Relative与Absolute组合使用/index.html">
 <meta property="og:site_name" content="墨翎呓语">
-<meta property="og:description" content="使用position:absolute可以实现被设置元素==相对于浏览器(body)== 设置定位以后，大家有没有想过可不可以相对于其它元素进行定位呢？答案是肯定的，当然可以。使用position:relative来帮忙，但是必须遵守下面规范： 1、参照定位的元素必须是相对定位元素的前辈元素： &amp;lt;div id=&amp;quot;box1&amp;quot;&amp;gt;&amp;lt;!--参照定位的元素--&amp;gt;">
+<meta property="og:description" content="介绍了CSS属性&apos;position&apos;的relative与absolute如何搭配使用，页面搭建有时候会用到。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-04T08:55:58.944Z">
+<meta property="og:updated_time" content="2019-07-26T05:30:58.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Relative与Absolute组合使用">
-<meta name="twitter:description" content="使用position:absolute可以实现被设置元素==相对于浏览器(body)== 设置定位以后，大家有没有想过可不可以相对于其它元素进行定位呢？答案是肯定的，当然可以。使用position:relative来帮忙，但是必须遵守下面规范： 1、参照定位的元素必须是相对定位元素的前辈元素： &amp;lt;div id=&amp;quot;box1&amp;quot;&amp;gt;&amp;lt;!--参照定位的元素--&amp;gt;">
+<meta name="twitter:description" content="介绍了CSS属性&apos;position&apos;的relative与absolute如何搭配使用，页面搭建有时候会用到。">
 
 
 
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-04 16:55:58" itemprop="dateModified" datetime="2019-07-04T16:55:58+08:00">2019-07-04</time>
+                <time title="修改时间：2019-07-26 13:30:58" itemprop="dateModified" datetime="2019-07-26T13:30:58+08:00">2019-07-26</time>
               </span>
             
           
@@ -484,6 +484,8 @@
           
 
           
+            <div class="post-description">介绍了CSS属性'position'的relative与absolute如何搭配使用，页面搭建有时候会用到。</div>
+          
 
         </div>
       </header>
@@ -498,22 +500,22 @@
       
 
       
-        <p>使用position:absolute可以实现被设置元素==相对于浏览器(body)== 设置定位以后，大家有没有想过可不可以相对于其它元素进行定位呢？答案是肯定的，当然可以。使用position:relative来帮忙，但是必须遵守下面规范：</p>
-<p>1、参照定位的元素必须是相对定位元素的前辈元素：</p>
-<pre><code>&lt;div id=&quot;box1&quot;&gt;&lt;!--参照定位的元素--&gt;
-    &lt;div id=&quot;box2&quot;&gt;相对参照元素进行定位&lt;/div&gt;&lt;!--相对定位元素--&gt;
-&lt;/div&gt;</code></pre><p>从上面代码可以看出box1是box2的父元素（父元素当然也是前辈元素了）。</p>
-<p>2、参照定位的元素必须加入position:relative;</p>
-<pre><code>#box1{
-    width:200px;
-    height:200px;
-    position:relative;        
-}</code></pre><p>3、定位元素加入position:absolute，便可以使用top、bottom、left、right来进行偏移定位了。</p>
-<pre><code>#box2{
-    position:absolute;
-    top:20px;
-    left:30px;         
-}</code></pre><p>这样box2就可以相对于父元素box1定位了（这里注意参照物就可以不是浏览器了，而可以自由设置了）。</p>
+        <p>使用<code>position:absolute</code>可以实现被设置元素<strong>相对于浏览器(body)</strong> 设置定位以后，大家有没有想过可不可以相对于其它元素进行定位呢？答案是肯定的，当然可以。使用<code>position:relative</code>来帮忙，但是必须遵守下面规范：</p>
+<ol>
+<li><p>参照定位的元素必须是相对定位元素的前辈元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box1"</span>&gt;</span><span class="comment">&lt;!--参照定位的元素--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box2"</span>&gt;</span>相对参照元素进行定位<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--相对定位元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 从上面代码可以看出box1是box2的父元素（父元素当然也是前辈元素了）。</p>
+</li>
+<li><p>参照定位的元素必须加入<code>position:relative</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">position</span>:relative;        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定位元素加入<code>position:absolute</code>，便可以使用top、bottom、left、right来进行偏移定位了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box2</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">30px</span>;         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 这样box2就可以相对于父元素box1定位了（这里注意参照物就可以不是浏览器了，而可以自由设置了）。</p>
+</li>
+</ol>
 
       
     </div>
@@ -630,7 +632,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

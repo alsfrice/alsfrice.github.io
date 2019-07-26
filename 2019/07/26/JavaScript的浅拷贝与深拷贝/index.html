@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="用户在加载图片时，如果图片加载速度过慢，会出现短暂的空白。等图片加载完毕后，图片的高度会慢慢撑开，引起页面重排，十分影响性能。所以可以预先留好图片空白的高度，避免页面重排。">
-<meta name="keywords" content="CSS,HTML">
+  <meta name="description" content="讲解了JavaScript的浅拷贝与深拷贝，并附有代码示例。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="预留高度问题">
-<meta property="og:url" content="https://alsfrice.github.io/2018/09/04/预留高度问题/index.html">
+<meta property="og:title" content="JavaScript的浅拷贝与深拷贝">
+<meta property="og:url" content="https://alsfrice.github.io/2019/07/26/JavaScript的浅拷贝与深拷贝/index.html">
 <meta property="og:site_name" content="墨翎呓语">
-<meta property="og:description" content="用户在加载图片时，如果图片加载速度过慢，会出现短暂的空白。等图片加载完毕后，图片的高度会慢慢撑开，引起页面重排，十分影响性能。所以可以预先留好图片空白的高度，避免页面重排。">
+<meta property="og:description" content="讲解了JavaScript的浅拷贝与深拷贝，并附有代码示例。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T05:28:22.150Z">
+<meta property="og:updated_time" content="2019-07-26T05:46:45.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="预留高度问题">
-<meta name="twitter:description" content="用户在加载图片时，如果图片加载速度过慢，会出现短暂的空白。等图片加载完毕后，图片的高度会慢慢撑开，引起页面重排，十分影响性能。所以可以预先留好图片空白的高度，避免页面重排。">
+<meta name="twitter:title" content="JavaScript的浅拷贝与深拷贝">
+<meta name="twitter:description" content="讲解了JavaScript的浅拷贝与深拷贝，并附有代码示例。">
 
 
 
@@ -129,7 +129,7 @@
 
   
   
-  <link rel="canonical" href="https://alsfrice.github.io/2018/09/04/预留高度问题/">
+  <link rel="canonical" href="https://alsfrice.github.io/2019/07/26/JavaScript的浅拷贝与深拷贝/">
 
 
 
@@ -139,7 +139,7 @@
   };
 </script>
 
-  <title>预留高度问题 | 墨翎呓语</title>
+  <title>JavaScript的浅拷贝与深拷贝 | 墨翎呓语</title>
   
 
 
@@ -380,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alsfrice.github.io/2018/09/04/预留高度问题/">
+    <link itemprop="mainEntityOfPage" href="https://alsfrice.github.io/2019/07/26/JavaScript的浅拷贝与深拷贝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="月影">
@@ -397,7 +397,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">预留高度问题
+          <h2 class="post-title" itemprop="name headline">JavaScript的浅拷贝与深拷贝
 
               
             
@@ -423,23 +423,13 @@
                 
               
 
-              <time title="创建时间：2018-09-04 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-04T00:00:00+08:00">2018-09-04</time>
+              <time title="创建时间：2019-07-26 09:48:09 / 修改时间：13:46:45" itemprop="dateCreated datePublished" datetime="2019-07-26T09:48:09+08:00">2019-07-26</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-26 13:28:22" itemprop="dateModified" datetime="2019-07-26T13:28:22+08:00">2019-07-26</time>
-              </span>
             
           
 
@@ -452,7 +442,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -484,7 +474,7 @@
           
 
           
-            <div class="post-description">用户在加载图片时，如果图片加载速度过慢，会出现短暂的空白。等图片加载完毕后，图片的高度会慢慢撑开，引起页面重排，十分影响性能。所以可以预先留好图片空白的高度，避免页面重排。</div>
+            <div class="post-description">讲解了JavaScript的浅拷贝与深拷贝，并附有代码示例。</div>
           
 
         </div>
@@ -500,12 +490,50 @@
       
 
       
-        <p>在<code>display: block</code>的块状宽度width固定为100% 而高度height则是随着内容的增加而自动增加，如果想要放置图片，给块预留高度，可以用以下方案解决：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parnet</span>&#123;</span><br><span class="line">   <span class="attribute">overflow</span>:hidden;</span><br><span class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">   <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">   <span class="attribute">padding-bottom</span>:<span class="number">31.25%</span>; <span class="comment">/* 这里的padding-bottom是由子元素图片的高/宽之比算出来的  */</span></span><br><span class="line">                          <span class="comment">/* 如图片宽高 640px 200px 200÷640＝31.25% */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child-img</span>&#123;</span><br><span class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  name: <span class="string">'espoir'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a.name = <span class="string">'joker'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b.name); <span class="comment">// joker</span></span><br></pre></td></tr></table></figure>
 
-<p>还有一种方法，不过存在兼容性问题</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parnet</span>&#123;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">31.25vw</span>; <span class="comment">/* 将高度设置为屏宽的31.25% */</span></span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="selector-class">.child-img</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>JavaScript中想要拷贝对象，不能简单的使用”=”进行赋值。我们可以使用深浅拷贝来实现这个需求。</p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><p>在要拷贝的对象只有一层属性的时候，我们可以使用浅拷贝来拷贝对象。浅拷贝有多种方式，接下来会逐一介绍。</p>
+<ul>
+<li><p>Object.assign</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  name: <span class="string">'espoir'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;, a);</span><br><span class="line">a.name = <span class="string">'joker'</span></span><br><span class="line"><span class="built_in">console</span>.log(b.name) <span class="comment">// espoir</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩展运算符 (…)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  name: <span class="string">'espoir'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;...a&#125;;</span><br><span class="line">a.name = <span class="string">'joker'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b.name) <span class="comment">// espoir</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for-in循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> shallowClone = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> ret = <span class="built_in">Array</span>.isArray(obj) ? [] : &#123;&#125;;</span><br><span class="line">  <span class="comment">// 判断传来的参数是否为对象，是否为空</span></span><br><span class="line">  <span class="keyword">if</span> (!obj || <span class="keyword">typeof</span> obj !== <span class="string">'object'</span> ) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="comment">// 只拷贝自身属性</span></span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">      ret[i] = obj[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<p>浅拷贝只是拷贝了对象的第一层属性，如果要拷贝的对象内还有对象时，两者又享有相同的引用。为此，我们需要引入深拷贝。</p>
+<hr>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><ul>
+<li>JSON.parse(JSON.stringfy(object))<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepCloneByJSON = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>这个方法虽然比较简便，但是也有其局限性：</p>
+<ul>
+<li>会忽略 <code>undefined</code></li>
+<li>会忽略 <code>Symbol</code></li>
+<li>不能序列化函数</li>
+<li>不能解决循环引用的对象</li>
+</ul>
+</blockquote>
+<ul>
+<li>for-in递归循环<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepClone = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> ret = <span class="built_in">Array</span>.isArray(obj) ? [] : &#123;&#125;;</span><br><span class="line">  <span class="comment">// 判断传来的参数是否为对象，是否为空</span></span><br><span class="line">  <span class="keyword">if</span> (!obj || <span class="keyword">typeof</span> obj !== <span class="string">'object'</span> ) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="comment">// 只拷贝自身属性</span></span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">      <span class="comment">// 判断子属性是否为对象，如果是，则进行递归拷贝</span></span><br><span class="line">      ret[i] = <span class="keyword">typeof</span> obj[i] === <span class="string">'object'</span> ? deepClone(obj[i]) : obj[i]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>这个方法可以解决<code>JSON.parse(JSON.stringfy(object))</code>方法的缺陷，但目前此方法也有自己缺陷。如Set,Map这种数据结构无法拷贝。</p>
+<ul>
+<li>lodash函数库的深拷贝函数<blockquote>
+<p><a href="https://lodash.com/docs/#cloneDeep" target="_blank" rel="noopener">lodash</a></p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -532,9 +560,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
-          
-            <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
           
         </div>
       
@@ -547,8 +573,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/01/垂直居中/" rel="next" title="垂直居中">
-                <i class="fa fa-chevron-left"></i> 垂直居中
+              <a href="/2019/07/25/CSS3的过渡与动画/" rel="next" title="CSS3的过渡与动画">
+                <i class="fa fa-chevron-left"></i> CSS3的过渡与动画
               </a>
             
           </div>
@@ -556,10 +582,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/05/水平居中/" rel="prev" title="水平居中">
-                水平居中 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -608,8 +630,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -758,6 +789,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝"><span class="nav-number">2.</span> <span class="nav-text">深拷贝</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -948,7 +996,7 @@
 
 <script>
   window.livereOptions = {
-    refer: '2018/09/04/预留高度问题/'
+    refer: '2019/07/26/JavaScript的浅拷贝与深拷贝/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

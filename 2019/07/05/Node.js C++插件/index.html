@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="在看《深入浅出Node.js》一书学习Node.js之时，根据书中的内容写C++扩展。念于此书年代过于久远，书中的部分代码已经过时了。写此文章，谨记学习路上踩过的坑。 用C++编写一个简单的”Hello World”插件，功能很简单，就是返回一个”Hello world!”字符串，相当于以下的JavaScript代码： 1module.exports.hello = () =&amp;gt; &amp;apos;">
+  <meta name="description" content="记录编写Node C++插件时踩过的坑。">
 <meta name="keywords" content="JavaScript,Node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js C++插件">
 <meta property="og:url" content="https://alsfrice.github.io/2019/07/05/Node.js C++插件/index.html">
 <meta property="og:site_name" content="墨翎呓语">
-<meta property="og:description" content="在看《深入浅出Node.js》一书学习Node.js之时，根据书中的内容写C++扩展。念于此书年代过于久远，书中的部分代码已经过时了。写此文章，谨记学习路上踩过的坑。 用C++编写一个简单的”Hello World”插件，功能很简单，就是返回一个”Hello world!”字符串，相当于以下的JavaScript代码： 1module.exports.hello = () =&amp;gt; &amp;apos;">
+<meta property="og:description" content="记录编写Node C++插件时踩过的坑。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T08:47:39.013Z">
+<meta property="og:updated_time" content="2019-07-26T05:25:26.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js C++插件">
-<meta name="twitter:description" content="在看《深入浅出Node.js》一书学习Node.js之时，根据书中的内容写C++扩展。念于此书年代过于久远，书中的部分代码已经过时了。写此文章，谨记学习路上踩过的坑。 用C++编写一个简单的”Hello World”插件，功能很简单，就是返回一个”Hello world!”字符串，相当于以下的JavaScript代码： 1module.exports.hello = () =&amp;gt; &amp;apos;">
+<meta name="twitter:description" content="记录编写Node C++插件时踩过的坑。">
 
 
 
@@ -423,13 +423,23 @@
                 
               
 
-              <time title="创建时间：2019-07-05 15:17:04 / 修改时间：16:47:39" itemprop="dateCreated datePublished" datetime="2019-07-05T15:17:04+08:00">2019-07-05</time>
+              <time title="创建时间：2019-07-05 15:17:04" itemprop="dateCreated datePublished" datetime="2019-07-05T15:17:04+08:00">2019-07-05</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-26 13:25:26" itemprop="dateModified" datetime="2019-07-26T13:25:26+08:00">2019-07-26</time>
+              </span>
             
           
 
@@ -481,6 +491,8 @@
           
 
           
+            <div class="post-description">记录编写Node C++插件时踩过的坑。</div>
+          
 
         </div>
       </header>
@@ -497,10 +509,10 @@
       
         <p>在看《深入浅出Node.js》一书学习Node.js之时，根据书中的内容写C++扩展。念于此书年代过于久远，书中的部分代码已经过时了。写此文章，谨记学习路上踩过的坑。</p>
 <p>用C++编写一个简单的”Hello World”插件，功能很简单，就是返回一个”Hello world!”字符串，相当于以下的JavaScript代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module.exports.hello = () =&gt; &apos;Hello world!&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.hello = <span class="function"><span class="params">()</span> =&gt;</span> <span class="string">'Hello world!'</span></span><br></pre></td></tr></table></figure>
 
 <p>新建hello目录作为自己的项目文件夹，编写hello.cc并将其存储到src目录下，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;node.h&gt;</span><br><span class="line"></span><br><span class="line">namespace demo &#123;</span><br><span class="line"></span><br><span class="line">using v8::FunctionCallbackInfo;</span><br><span class="line">using v8::Isolate;</span><br><span class="line">using v8::Local;</span><br><span class="line">using v8::Object;</span><br><span class="line">using v8::String;</span><br><span class="line">using v8::Value;</span><br><span class="line"></span><br><span class="line">// 实现预定义的方法</span><br><span class="line">void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) &#123;</span><br><span class="line">  Isolate* isolate = args.GetIsolate();</span><br><span class="line">  args.GetReturnValue().Set(String::NewFromUtf8(isolate, &quot;Hello world!&quot;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 初始化函数</span><br><span class="line">void init(Local&lt;Object&gt; exports) &#123;</span><br><span class="line">  NODE_SET_METHOD(exports, &quot;sayHello&quot;, Method);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 调用NODE_MODULE()将注册方法定义到内存中，注：NODE_MODULE后面没有分号，因为它不是一个函数</span><br><span class="line">NODE_MODULE(NODE_GYP_MODULE_NAME, init)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;node.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> demo &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> v8::FunctionCallbackInfo;</span><br><span class="line"><span class="keyword">using</span> v8::Isolate;</span><br><span class="line"><span class="keyword">using</span> v8::Local;</span><br><span class="line"><span class="keyword">using</span> v8::Object;</span><br><span class="line"><span class="keyword">using</span> v8::String;</span><br><span class="line"><span class="keyword">using</span> v8::Value;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现预定义的方法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Method</span><span class="params">(<span class="keyword">const</span> FunctionCallbackInfo&lt;Value&gt;&amp; args)</span> </span>&#123;</span><br><span class="line">  Isolate* isolate = args.GetIsolate();</span><br><span class="line">  args.GetReturnValue().Set(String::NewFromUtf8(isolate, <span class="string">"Hello world!"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Local&lt;Object&gt; exports)</span> </span>&#123;</span><br><span class="line">  NODE_SET_METHOD(exports, <span class="string">"sayHello"</span>, Method);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用NODE_MODULE()将注册方法定义到内存中，注：NODE_MODULE后面没有分号，因为它不是一个函数</span></span><br><span class="line">NODE_MODULE(NODE_GYP_MODULE_NAME, init)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>写好C++扩展模块，还需要进行编译。工具使用node-gyp即可，安装方式可用npm或yarn:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g node-gyp</span><br></pre></td></tr></table></figure>
@@ -509,7 +521,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add node-gyp</span><br></pre></td></tr></table></figure>
 
 <p>安装完毕还需要写好.gyp项目文件，node-gyp约定.gyp文件为binding.gyp。它使用一个类似 JSON 的格式来描述模块的构建配置。 内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &apos;targets&apos;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &apos;target_name&apos;: &apos;hello&apos;,</span><br><span class="line">      &apos;sources&apos;: [&apos;src/hello.cc&apos;]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  'targets': [</span><br><span class="line">    &#123;</span><br><span class="line">      'target_name': 'hello',</span><br><span class="line">      'sources': ['src/hello.cc']</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>然后调用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-gyp configure</span><br></pre></td></tr></table></figure>
@@ -519,7 +531,7 @@
 
 <p>生成编译后的 hello.node 的文件。 它会被放进 build/Release/ 目录。</p>
 <p>在hello目录下编写hello.js，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const hello = require(&apos;./build/Release/hello.node&apos;)</span><br><span class="line"></span><br><span class="line">console.log(hello.sayHello())</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hello = <span class="built_in">require</span>(<span class="string">'./build/Release/hello.node'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(hello.sayHello())</span><br></pre></td></tr></table></figure>
 
 <p>调用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node hello.js</span><br><span class="line"></span><br><span class="line">// 打印：Hello world!</span><br></pre></td></tr></table></figure>
@@ -642,7 +654,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
